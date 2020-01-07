@@ -1,23 +1,14 @@
 FROM composer:1.9.0
 
-LABEL repository="https://github.com/ubient/laravel-vapor-action"
-LABEL homepage="https://github.com/ubient/laravel-vapor-action"
-LABEL maintainer="Claudio Dekker <claudio@ubient.net>"
+LABEL repository="https://github.com/cierrateam/laravel-vapor-action"
+LABEL homepage="https://cierra.de"
+LABEL maintainer="Vittorio Emmermann <vittorio@cierra.de>"
 
 # Install required extenstions for laravel
 # https://laravel.com/docs/6.x#server-requirements
 RUN apk add libxml2-dev && \
-    docker-php-ext-install bcmath xml tokenizer mbstring
+    docker-php-ext-install bcmath xml tokenizer mbstring zlib1g-dev libpng-dev
 
-RUN apt-get update -y && apt-get install -y sendmail libpng-dev
-
-RUN apt-get update && \
-    apt-get install -y \
-        zlib1g-dev 
-
-RUN docker-php-ext-install mbstring
-
-RUN docker-php-ext-install zip
 
 RUN docker-php-ext-install gd
 
