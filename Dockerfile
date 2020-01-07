@@ -6,7 +6,7 @@ LABEL maintainer="Vittorio Emmermann <vittorio@cierra.de>"
 
 # Install required extenstions for laravel
 # https://laravel.com/docs/6.x#server-requirements
-RUN apk add libxml2-dev zlib1g-dev libpng-dev && \
+RUN apk add libxml2-dev && \
     docker-php-ext-install bcmath xml tokenizer mbstring gd
 
 
