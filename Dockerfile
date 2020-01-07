@@ -8,6 +8,20 @@ LABEL maintainer="Claudio Dekker <claudio@ubient.net>"
 # https://laravel.com/docs/6.x#server-requirements
 RUN apk add libxml2-dev && \
     docker-php-ext-install bcmath xml tokenizer mbstring
+    
+RUN docker-php-ext-install mysql mysqli
+
+RUN apt-get update -y && apt-get install -y sendmail libpng-dev
+
+RUN apt-get update && \
+    apt-get install -y \
+        zlib1g-dev 
+
+RUN docker-php-ext-install mbstring
+
+RUN docker-php-ext-install zip
+
+RUN docker-php-ext-install gd
 
 # Install Vapor + Prestissimo (parallel/quicker composer install)
 RUN set -xe && \
